@@ -10,6 +10,7 @@ use App\Models\Lesson;
 use App\Models\Post;
 use App\Models\Profile;
 use App\Models\Section;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -31,7 +32,20 @@ class DatabaseSeeder extends Seeder
         });
 
         \App\Models\Category::factory(10)->create();
-        \App\Models\Post::factory(100)->create();
+        
+        \App\Models\Post::factory(20)->create()->each(function($post){
+            $post->image()->create([
+                'url' => fake()->imageUrl()
+            ]);
+        });
+
+        Tag::factory(8)->create()->each(function ($tag){
+            $tag->posts()->sync(
+                [1  => ['data' => 'primero'],2 => ['data' => 'segundo'],3 => ['data' => 'trecero']]
+            );
+        });
+
+
 
 
         Course::factory(10)->create()->each(function ($course) {

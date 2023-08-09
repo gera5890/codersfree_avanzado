@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Course;
 use App\Models\Post;
 use App\Models\Profile;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -191,10 +192,26 @@ Route::get('/cursos/{curso}/{categoria?}', function($curso, $categoria = null){
     // $post = Post::find(1);
     // return $post->category;
 
+    //Retorna la direccion relacionada al usuario a traves de profile
     // $user = User::find(1);
     // return $user->profile->address;
+    
+    //Retorna la direccion relacionada al user a traves de profile
+    // $user = User::find(1);
+    // return $user->address;
 
-    $course = Course::find(2);
-    return $course->lessons;
+    //Retorna las lecciones que le pertenecen al curso
+    // $course = Course::find(2);
+    // return $course->lessons;
+
+    // $posts = Post::find(1);
+    // return $posts->tags;
+
+    // $tags = Tag::find(2);
+    // return $tags->posts;
+
+    $post =Post::find(1);
+    return $post->image;
+    
 
   });
