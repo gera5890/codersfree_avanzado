@@ -18,4 +18,10 @@ class Course extends Model
     public function lessons(){
         return $this->hasManyThrough(Lesson::class, Section::class);
     }
+
+    //relacion muchos a mucho polimorfica
+
+    public function tags(){
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }

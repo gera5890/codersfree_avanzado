@@ -13,7 +13,18 @@ class Tag extends Model
         'name'
     ];
 
+    // //relacion muchos a muchos
+    // public function posts(){
+    //     return $this->belongsToMany(Post::class)->withTimestamps()->withPivot('data');
+    // }
+
+    //relacion muchos a muchos inversa
+
     public function posts(){
-        return $this->belongsToMany(Post::class)->withTimestamps()->withPivot('data');
+        return $this->morphedByMany(Post::class, 'taggable');
+    }
+
+    public function courses(){
+        return $this->morphedByMany(Course::class, 'taggable');
     }
 }

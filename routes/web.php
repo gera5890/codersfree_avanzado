@@ -4,6 +4,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Models\Address;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Course;
 use App\Models\Post;
 use App\Models\Profile;
@@ -210,8 +211,25 @@ Route::get('/cursos/{curso}/{categoria?}', function($curso, $categoria = null){
     // $tags = Tag::find(2);
     // return $tags->posts;
 
-    $post =Post::find(1);
-    return $post->image;
+    // $post =Post::find(1);
+    // return $post->image;
     
+    // $post = Post::find(1);
+
+    // $comments = $post->comments()->create([
+    //     'body' => "Este es otro de prueba"
+    // ]);
+
+    // return $post->comments;
+
+
+    // $post = Post::find(1);
+    // $categorias = $post->category;
+    // $tags = $post->tags;
+    // $infoPost = ['categorias' => $categorias, 'tags' =>$tags];
+
+
+    // return $infoPost;
+   
 
   });
