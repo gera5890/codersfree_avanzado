@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
     {
         return [
             //
-            'name' => fake()->title(),
+            'name' => fake()->sentence(),
         ];
     }
 }

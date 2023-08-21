@@ -1,16 +1,8 @@
 <?php
 
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\HomeController;
-use App\Models\Address;
-use App\Models\Category;
-use App\Models\Comment;
-use App\Models\Course;
+
+use App\Http\Controllers\PostController;
 use App\Models\Post;
-use App\Models\Profile;
-use App\Models\Tag;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
   return view('welcome');
 });
+
+
+Route::resource('posts',PostController::class);
+
 /**
  *   Rutas en laravel
   
@@ -65,11 +61,11 @@ Route::get('/cursos/{curso}/{categoria?}', function($curso, $categoria = null){
  */
 
 
- Route::controller(CourseController::class)->group(function(){
-    Route::get('/cursos', 'index');    
-    Route::get('/cursos/create', 'create');
-    Route::get('/cursos/{curso}/{categoria?}', 'show')->where('curso', '[A-Za-z]');
- });
+//  Route::controller(CourseController::class)->group(function(){
+//     Route::get('/cursos', 'index');    
+//     Route::get('/cursos/create', 'create');
+//     Route::get('/cursos/{curso}/{categoria?}', 'show')->where('curso', '[A-Za-z]');
+//  });
 
  /**
   *     Rutas para un CRUD
@@ -105,14 +101,14 @@ Route::get('/cursos/{curso}/{categoria?}', function($curso, $categoria = null){
                         
   */
 
-  Route::controller(CourseController::class)->prefix('/posts')->group(function(){
-        Route::get('/','index')->name('post.index');
-        Route::get('/create', 'create')->name('post.create');
-        Route::post('/create','store')->name('post.store');
-        Route::get('/{post}','show')->name('post.show');
-        Route::get('/{post}/edit','edit')->name('postform.edit');
-        Route::post('/{post}/edit', 'edit')->name('post.edit');
-  });
+//   Route::controller(CourseController::class)->prefix('/posts')->group(function(){
+//         Route::get('/','index')->name('post.index');
+//         Route::get('/create', 'create')->name('post.create');
+//         Route::post('/create','store')->name('post.store');
+//         Route::get('/{post}','show')->name('post.show');
+//         Route::get('/{post}/edit','edit')->name('postform.edit');
+//         Route::post('/{post}/edit', 'edit')->name('post.edit');
+//   });
 
   Route::get('/prueba', function(){
     // DB::table('users')
@@ -230,6 +226,5 @@ Route::get('/cursos/{curso}/{categoria?}', function($curso, $categoria = null){
 
 
     // return $infoPost;
-   
-
+    
   });

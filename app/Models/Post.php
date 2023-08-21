@@ -12,8 +12,15 @@ class Post extends Model
     protected $fillable =[
         'id',
         'title',
-        'body'
+        'slug',
+        'body',
+        'category_id'
     ];
+
+    public function getRouteKeyName()
+    {
+        return "slug";   
+    }
 
     //relacion inversa uno a muchos
     public function category(){

@@ -7,6 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    Aqui se mostrara el formulario para crear un post
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="{{route('posts.index')}}">Posts</a>
+            </li>
+        </ul>
+    </nav>
+
+    {{ $slot }}
 </body>
 </html>

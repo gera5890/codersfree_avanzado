@@ -18,7 +18,8 @@ class PostFactory extends Factory
     {
         return [
             //
-            'title' => fake()->title(),
+            'title' => fake()->sentence(),
+            'slug' => fake()->slug(),
             'body' => fake()->text(),
             'category_id' => fake()->numberBetween(1,10)
         ];
